@@ -110,7 +110,7 @@ namespace WindowsFormsApp1
             // EncoderParameter object in the array.  
             EncoderParameters myEncoderParameters = new EncoderParameters(1);
 
-            EncoderParameter myEncoderParameter = new EncoderParameter(myEncoder, 8 0L);
+            EncoderParameter myEncoderParameter = new EncoderParameter(myEncoder, 80L);
             myEncoderParameters.Param[0] = myEncoderParameter;
             ResizeImage(image, width, height).Save(path + fileName, jpgEncoder, myEncoderParameters);
 
