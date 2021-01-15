@@ -40,22 +40,24 @@ namespace WindowsFormsApp1
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.lblQuantity, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblName, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.lblTotalPrice, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.picImage, 0, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(5, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(200, 353);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(200, 350);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // lblQuantity
@@ -65,7 +67,7 @@ namespace WindowsFormsApp1
             this.lblQuantity.Location = new System.Drawing.Point(4, 0);
             this.lblQuantity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblQuantity.Name = "lblQuantity";
-            this.lblQuantity.Size = new System.Drawing.Size(192, 17);
+            this.lblQuantity.Size = new System.Drawing.Size(192, 18);
             this.lblQuantity.TabIndex = 0;
             this.lblQuantity.Text = "label1";
             this.lblQuantity.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -74,10 +76,10 @@ namespace WindowsFormsApp1
             // 
             this.lblName.AutoSize = true;
             this.lblName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblName.Location = new System.Drawing.Point(4, 317);
-            this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblName.Location = new System.Drawing.Point(0, 312);
+            this.lblName.Margin = new System.Windows.Forms.Padding(0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(192, 17);
+            this.lblName.Size = new System.Drawing.Size(200, 20);
             this.lblName.TabIndex = 1;
             this.lblName.Text = "label2";
             this.lblName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -86,21 +88,21 @@ namespace WindowsFormsApp1
             // 
             this.lblTotalPrice.AutoSize = true;
             this.lblTotalPrice.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTotalPrice.Location = new System.Drawing.Point(4, 334);
-            this.lblTotalPrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTotalPrice.Location = new System.Drawing.Point(0, 332);
+            this.lblTotalPrice.Margin = new System.Windows.Forms.Padding(0);
             this.lblTotalPrice.Name = "lblTotalPrice";
-            this.lblTotalPrice.Size = new System.Drawing.Size(192, 19);
+            this.lblTotalPrice.Size = new System.Drawing.Size(200, 18);
             this.lblTotalPrice.TabIndex = 2;
             this.lblTotalPrice.Text = "label3";
             this.lblTotalPrice.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // picImage
             // 
-            this.picImage.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.picImage.Location = new System.Drawing.Point(0, 17);
+            this.picImage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picImage.Location = new System.Drawing.Point(0, 18);
             this.picImage.Margin = new System.Windows.Forms.Padding(0);
             this.picImage.Name = "picImage";
-            this.picImage.Size = new System.Drawing.Size(200, 300);
+            this.picImage.Size = new System.Drawing.Size(200, 294);
             this.picImage.TabIndex = 3;
             this.picImage.TabStop = false;
             // 
@@ -113,7 +115,7 @@ namespace WindowsFormsApp1
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "customControl";
             this.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.Size = new System.Drawing.Size(210, 353);
+            this.Size = new System.Drawing.Size(210, 350);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picImage)).EndInit();
@@ -122,11 +124,10 @@ namespace WindowsFormsApp1
         }
 
         #endregion
-
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         public System.Windows.Forms.Label lblQuantity;
         public System.Windows.Forms.Label lblName;
         public System.Windows.Forms.Label lblTotalPrice;
         public System.Windows.Forms.PictureBox picImage;
+        public System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

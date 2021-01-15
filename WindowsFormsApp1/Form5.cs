@@ -41,22 +41,24 @@ namespace WindowsFormsApp1
         {
             var formHeight = this.Size.Height;
 
-            int setWidth = 200, setHeight = 300;
-            int setX = 12, setY = formHeight - 350;
+            int setWidth = 210, setHeight = 350;
+            //int setX = 12, setY = formHeight - 350;
 
             foreach (DataRow _data in loadData().Rows)
             {
                 customControl control = new customControl();
 
-                control.lblQuantity.Text = _data["Quantity"].ToString();
+                control.lblQuantity.Text = _data["Quantity"].ToString().Replace(", ", "\n");
 
                 control.picImage.ImageLocation = _data["ImagePath"].ToString();
                 control.picImage.SizeMode = PictureBoxSizeMode.StretchImage;
-                control.picImage.Size = new Size(setWidth, setHeight);
+                control.picImage.Size = new Size(200, 300);
 
                 control.lblName.Text = _data["Name"].ToString();
 
-                control.lblTotalPrice.Text = Convert.ToDecimal(_data["TotalPrice"]).ToString("C2");
+                control.lblTotalPrice.Text = _data["TotalPrice"].ToString().Replace(", ", "\n");
+
+                control.Size = new Size(setWidth, setHeight);
 
                 flowLayoutPanel1.Controls.Add(control);
 
@@ -91,7 +93,8 @@ namespace WindowsFormsApp1
             using (SqlConnection connection = new SqlConnection(@"Server=TRYPC\SQLEXPRESS;Database=TestDB;Uid=sa;Pwd=123@456;"))
             {
                 DataTable dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter("SELECT Name, Quantity, UnitPrice, TotalPrice, ImagePath FROM Product", connection);
+                SqlDataAdapter da = new SqlDataAdapter("GetProduct", connection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 connection.Open();
                 da.Fill(dt);
                 connection.Close();
