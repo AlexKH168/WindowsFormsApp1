@@ -39,52 +39,34 @@ namespace WindowsFormsApp1
 
         private void loopPictureBox()
         {
-            var formHeight = this.Size.Height;
+            var flowHeight = flowLayoutPanel1.Height;
 
-            int setWidth = 210, setHeight = 350;
-            //int setX = 12, setY = formHeight - 350;
+            int controlWidth = 210, controlHeight = 350;
 
             foreach (DataRow _data in loadData().Rows)
             {
                 customControl control = new customControl();
 
+                int controlMarginTop = flowHeight - controlHeight - 10;
+
                 control.lblQuantity.Text = _data["Quantity"].ToString().Replace(", ", "\n");
 
                 control.picImage.ImageLocation = _data["ImagePath"].ToString();
-                control.picImage.SizeMode = PictureBoxSizeMode.StretchImage;
+                control.picImage.SizeMode = PictureBoxSizeMode.Zoom;
                 control.picImage.Size = new Size(200, 300);
 
                 control.lblName.Text = _data["Name"].ToString();
 
                 control.lblTotalPrice.Text = _data["TotalPrice"].ToString().Replace(", ", "\n");
 
-                control.Size = new Size(setWidth, setHeight);
+                control.Size = new Size(controlWidth, controlHeight);
+                control.Margin = new Padding(0, controlMarginTop, 0, 0);
+
 
                 flowLayoutPanel1.Controls.Add(control);
 
-                //PictureBox pictureBox = new PictureBox();
-
-                //pictureBox.Location = new Point(setX, setY);
-                //pictureBox.Size = new Size(setWidth, setHeight);
-                //pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-                //pictureBox.ImageLocation = _data["ImagePath"].ToString();
-
-                //this.Controls.Add(pictureBox);
-
-                //Label label = new Label();
-                ////label.Location = new Point(setX, setY);
-                //label.Text = _data["Name"].ToString();
-                //label.Font = new Font("Times New Roman", 11F);
-
-                //this.Controls.Add(label);
-
-                //flowLayoutPanel1.Controls.Add(pictureBox);
-
-                //setX += 200;
-                //setY += 20;
-
-                setWidth -= 10;
-                setHeight -= 20;
+                controlWidth -= 10;
+                controlHeight -= 20;
             }
         }
 
@@ -94,6 +76,8 @@ namespace WindowsFormsApp1
             {
                 DataTable dt = new DataTable();
                 SqlDataAdapter da = new SqlDataAdapter("GetProduct", connection);
+                da.SelectCommand.Parameters.AddWithValue("@startDate", DateTime.Now.Date);
+                da.SelectCommand.Parameters.AddWithValue("@endDate", DateTime.Now.Date);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 connection.Open();
                 da.Fill(dt);
